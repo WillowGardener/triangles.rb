@@ -1,7 +1,7 @@
 class Triangles
 
-  def initialize(side1,side2,side3)
-    @sides = [side1, side2, side3].sort.reverse
+  def initialize(sides)
+    @sides = sides.sort.reverse
   end
 
   def triangle_checker
@@ -17,4 +17,15 @@ class Triangles
   end
 end
 
+def main_menu
+  loop do
+    puts "/// TRIANGLE CALCULATOR ///"
+    puts "enter the three sides of the triangle with just a space between them (e.g. 3 4 5)"
+    input = (gets.chomp.split).map { |x| x.to_i }
+    new_triangle = Triangles.new(input)
+    p new_triangle.triangle_checker + " triangle!"
+    exit
+  end
+end
 
+main_menu
